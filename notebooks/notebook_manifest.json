@@ -1,0 +1,10 @@
+{
+  "M3Diff_LoRA_SCST_4_O.ipynb": {
+    "source": "caitien/M3Diff_LoRA_SCST_4_O.ipynb",
+    "sha256": "af0f34cbb4c14a9b6b91562b3e0145d44c543c849a6f1a722a1d28ca7c5c57dd"
+  },
+  "M3Diff_SCST_Full1570_G100_B105_4_O.ipynb": {
+    "source": "caitien/M3Diff_SCST_Full1570_G100_B105_4_O.ipynb",
+    "sha256": "724a22b8ec4c849df27d417676f8b96beb87e5c1a6d716dcbadc47000afbacd7"
+  }
+}

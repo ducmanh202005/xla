@@ -1,0 +1,9 @@
+__pycache__/
+history/
+m3diff_connection.json
+**/m3diff_connection*.json
+**/slot*.pt
+**/model-*.safetensors
+**/optimizer*.pt
+checkpoints/**/*.zip
+.venv/

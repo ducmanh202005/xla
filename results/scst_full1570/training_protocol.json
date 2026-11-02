@@ -1,0 +1,106 @@
+{
+  "config": {
+    "seed": 20261031,
+    "pairs": 512,
+    "updates": 128,
+    "accumulation": 4,
+    "lr": 1e-05,
+    "weight_decay": 0.0,
+    "clip_grad": 1.0,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.0,
+    "scst_weight": 0.05,
+    "checkpoint_every": 5,
+    "budget_seconds": 10800,
+    "max_new_tokens": 256
+  },
+  "selection": {
+    "train": "f9c09261cbb20cf73bae1752abc7a2acb44c4cf78fb243788fa524d6cd662382",
+    "development": "8e6f9f45bf98b42bed0a5a4a199f25199ed60cc9341a6d6da766b10896570be6",
+    "confirmation": "b8a12558db57470b8503234a856a86e93fb426950e98439f9cb00fdd854bc20a",
+    "reward_rows": "8d323ae2cbf44d7a387fe2ad155ab648f9e38d787cfb889b41e7091e550adacf"
+  },
+  "checkpoint": {
+    "added_tokens.json": "f86f2a952b4888d195b8d77e3d56ad96864ecc696cca2155d0d4ac933fcfd55f",
+    "config.json": "cd0608586cce1eb0af4f5ea61f873598fff45920a3b450609a17155f96eaaa95",
+    "generation_config.json": "e4eea1ce96e5935378f4d7f843c22b942998d59a8162abcc8891392afd98242c",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "model-00001-of-00004.safetensors": "267776d8371f377c158c759b7943237ee2dff7f349cf154b9972732e2f30f616",
+    "model-00002-of-00004.safetensors": "bcb22fc18202fc6bb87bd282db14430a3d5389e5f63242486c522fb185815d28",
+    "model-00003-of-00004.safetensors": "47262a139660a71769c9a7460c561c46dad36041a4cff7214ebb1f5f7227ad63",
+    "model-00004-of-00004.safetensors": "38849a8c36fc9bf6e85f149aa117adc38f8ba6ccab0a423fa1a79a3cc33ed81b",
+    "model.safetensors.index.json": "89817bb6a26ec95ce8382231a597b534ddc48b73619579566c670310cd1bfce5",
+    "special_tokens_map.json": "f4f79e08d97f4d1c87f8d89264f525c8789da3b73b3bb55d1e12f692f41a7b1b",
+    "tokenizer_config.json": "3ae8d5ad312360a6efd9b24299ca74b0f8342b41fe82799130a958c7000a92ff",
+    "vocab.json": "87a257b04b17642a0688c98cd1df89c398bda4fee532d6f88b38a659ecb4ac8d"
+  },
+  "vision": {
+    "repo": "google/siglip-so400m-patch14-384",
+    "revision": "9fdffc58afc957d1a03a25b10dba0329ab15c2a3"
+  },
+  "vision_hashes": {
+    "config.json": "adc04928d8fd19a61822584fe0cf2e813e5ebac17f3e49fb1ea096860ae6457b",
+    "model.safetensors": "ea2abad2b7f8a9c1aa5e49a244d5d57ffa71c56f720c94bc5d240ef4d6e1d94a",
+    "preprocessor_config.json": "f59da2f87c3cd079bd4f8f3037e81b277c60c498e279a8020331f67a5a3157e8",
+    "special_tokens_map.json": "2b6a1ff67a27e0df9ac0c7d93250fc0d87431c7b366b3d5669217104f9088a26",
+    "tokenizer.json": "c6e405cb7c670d56636a9402c81023a55bc6c3c53d89cf02b92f5c5005bfe920",
+    "tokenizer_config.json": "d6423dae508cc3a129d22ea443841c111832a1a73125b8f25ea8736951698bcb"
+  },
+  "annotation_sha": "f4ad845995fd3a2ace34cc1343b79df4526be52bfb5b255e7876b4a2259746aa",
+  "image_manifest": "ae2f38ffaf49245901bb06e0e745d7ae4e43ddb01416733a6adf7988c1ad215c",
+  "source_sha": "8a0c3e930942dcc2ea0d6fa69fc9a7226d47362e127583313b350e8d2961dffa",
+  "code": {
+    "caption_metrics.py": "94da3415ab1211d1b4972034c48341d8c59106a681613f13393b50624b1306b5",
+    "inference_tokens.py": "2fc2649c573c43f1535b85570bcbeec3b9a80f1422831a21d985891b6097ff4f",
+    "scst_objective.py": "dd981723ae04381c0c7ea069104e979af812ba952885df20059486b209175a57",
+    "scst_prepare.py": "f8ac1f705a992ebe2b379acf0a752cafe5f9e18c2c547844991e7f7511fa67dc",
+    "scst_reward.py": "9cec085f20991c2ae92269487b599b0177d76a53de237b0b4b539fb11d0972c4",
+    "scst_runner.py": "f011ff359fceb9fe482587224bfc06e22066293ef04c009b9d39caecca39d359",
+    "scst_score.py": "ab6cfad5879120cb04c08f2654ca2c3f58a05ac59586c850fc429e29239e3f89",
+    "scst_state.py": "222794d9791b251ff13b6ac0b8e8a3169b1a753d3f907457b402b40fecdd7cd6",
+    "scst_support.py": "423270ee0e57ebe4ae67fbbf41ab02673aa8364b095f47c0394f25e71b2d5dfb"
+  },
+  "packages": {
+    "torch": "2.2.2+cu121",
+    "torchvision": "0.17.2+cu121",
+    "transformers": "4.40.0",
+    "tokenizers": "0.19.1",
+    "accelerate": "0.29.1",
+    "peft": "0.10.0",
+    "einops": "0.6.1",
+    "einops-exts": "0.0.4",
+    "sentencepiece": "0.1.99",
+    "bitsandbytes": "0.41.0",
+    "shortuuid": "1.0.13",
+    "timm": "0.9.12",
+    "numpy": "1.26.4",
+    "Pillow": "11.3.0",
+    "huggingface-hub": "0.36.2",
+    "pycocoevalcap": "1.2"
+  },
+  "precision": "BF16 autocast; original MDP and projector FP32 in every arm including baseline",
+  "decode": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 256,
+    "no_repeat_ngram_size": 0
+  },
+  "question": "What modifications can be observed between these two pictures?  <image><image>Difference:",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "cuda": "12.1",
+  "cudnn": 8902,
+  "reward_sha": "39afcb8f24574c81f2be3005f7aadf0ca8fbe1f4dab0177843986c7549e6dd37",
+  "reward_data": "8d323ae2cbf44d7a387fe2ad155ab648f9e38d787cfb889b41e7091e550adacf",
+  "reward_description": "CIDEr-D raw 0..10, fixed DF over all 12452 official train pairs; PTB",
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "top_k": 0,
+    "num_beams": 1,
+    "max_new_tokens": 256
+  },
+  "validation_previously_exposed": true,
+  "test_used": false,
+  "training_goal": "pilot, no promised gain"
+}

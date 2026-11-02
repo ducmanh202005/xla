@@ -1,0 +1,58 @@
+{
+  "parent_protocol": "628f3f26f7cf66d55dbe0bb70b8d99ababbf243df72979de225336293a330ac6",
+  "weights": {
+    "G": "c5255ae841d0964d321eaa3506366573b31243f25353b481821bf5c8126b0c30",
+    "B": "20d99f77346716fef35d5b369f6eee83458e8c854566d7bd3a557e5b2ba53a83"
+  },
+  "selection": "1cec00d1723cbf206e6b0dc5875755d78c3d71cc0c15126fe7ceb9bf7d4f2ff8",
+  "code": {
+    "eval_support.py": "817e8d689f4f2fb4858723977e740249e4b891050c733958f410d8595800bb33",
+    "full_eval.py": "17d6953184db3716bd192db7f74dbcd0d8931f246d9b1c40ff8863d278552ece",
+    "full_prepare.py": "cfce6cbd3e4852c203335553a3e66d7ccae9bd40d08c626b68f8ab4de05d9998"
+  },
+  "budget_seconds": 10800,
+  "primary_metric": "All CIDEr",
+  "training": false,
+  "test_used": true,
+  "precision": "BF16 autocast; original MDP and projector FP32 in every arm including baseline",
+  "decode_by_arm": {
+    "G": {
+      "do_sample": false,
+      "num_beams": 1,
+      "max_new_tokens": 256,
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "top_k": 50,
+      "no_repeat_ngram_size": 0,
+      "min_new_tokens": 0,
+      "pad_token_id": 151645,
+      "eos_token_id": 151645,
+      "bos_token_id": null,
+      "use_cache": true,
+      "return_dict_in_generate": false,
+      "output_scores": false,
+      "repetition_penalty": 1.0
+    },
+    "B": {
+      "do_sample": false,
+      "num_beams": 1,
+      "max_new_tokens": 256,
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "top_k": 50,
+      "no_repeat_ngram_size": 0,
+      "min_new_tokens": 0,
+      "pad_token_id": 151645,
+      "eos_token_id": 151645,
+      "bos_token_id": null,
+      "use_cache": true,
+      "return_dict_in_generate": false,
+      "output_scores": false,
+      "repetition_penalty": 1.05
+    }
+  },
+  "question": "What modifications can be observed between these two pictures?  <image><image>Difference:",
+  "comparison_scope": "adapter_and_decoding",
+  "matched_decoding": false,
+  "reused_G_identity": "9329e4382120db8bf6cdbfb83334edc8d681083dbf5eda9cdca7a5900f219812"
+}

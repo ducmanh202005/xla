@@ -1,0 +1,11 @@
+{
+  "prompt": "What modifications can be observed between these two pictures? <image><image> Difference:",
+  "conv_mode": "qwen_2",
+  "torch_dtype": "float16",
+  "flash_attention": false,
+  "temperature": 0,
+  "top_p": null,
+  "num_beams": 1,
+  "max_new_tokens": 256,
+  "use_cache": true
+}

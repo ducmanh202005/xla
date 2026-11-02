@@ -1,0 +1,2 @@
+# Chỉ cài vào kernel giao diện Colab; không cài vào venv model Python 3.10.
+gradio==5.49.1

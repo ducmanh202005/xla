@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui;color:#17324d}
+.surface{position:relative;background:#eef2f6;border:1px solid #cbd5e1;border-radius:12px;overflow:hidden}
+canvas{display:block;width:100%;cursor:crosshair;touch-action:none}
+canvas:focus-visible{outline:3px solid #2563eb;outline-offset:-3px}
+.tip{margin:8px 0 0;color:#475569}button{font:inherit;border:1px solid #94a3b8;
+background:white;border-radius:7px;padding:7px 12px;min-height:36px;cursor:pointer}
+.tools{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+</style></head><body>
+<div class="surface"><canvas tabindex="0" aria-label="Kéo để chọn vùng ảnh. Có thể nhập tọa độ bằng bàn phím ở bên dưới."></canvas></div>
+<div class="tools"><span class="tip" role="status">Kéo chuột để khoanh vùng cần so sánh.</span><button type="button">Bỏ vùng</button></div>
+<script>
+const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');
+const tip=document.querySelector('.tip'),image=new Image();
+let roi=null,start=null,lastRevision=null,imageSource=null;
+function send(type,payload={}){parent.postMessage({isStreamlitMessage:true,type,...payload},'*')}
+function height(){send('streamlit:setFrameHeight',{height:document.body.scrollHeight+5})}
+function render(){
+ if(!image.complete||!image.naturalWidth)return;
+ canvas.width=image.naturalWidth;canvas.height=image.naturalHeight;
+ ctx.drawImage(image,0,0);
+ if(roi){const [x0,y0,x1,y1]=roi;
+  ctx.fillStyle='rgba(14,116,144,.16)';ctx.fillRect(x0*canvas.width,y0*canvas.height,(x1-x0)*canvas.width,(y1-y0)*canvas.height);
+  ctx.strokeStyle='#22d3ee';ctx.lineWidth=Math.max(3,canvas.width/220);
+  ctx.strokeRect(x0*canvas.width,y0*canvas.height,(x1-x0)*canvas.width,(y1-y0)*canvas.height);
+  tip.textContent='Đã chọn vùng · '+Math.round((x1-x0)*100)+'% rộng × '+Math.round((y1-y0)*100)+'% cao';
+ }else tip.textContent='Kéo chuột để khoanh vùng cần so sánh.';
+ height();
+}
+function point(e){const b=canvas.getBoundingClientRect();return [Math.max(0,Math.min(1,(e.clientX-b.left)/b.width)),Math.max(0,Math.min(1,(e.clientY-b.top)/b.height))]}
+function publish(){send('streamlit:setComponentValue',{value:{roi,revision:lastRevision},dataType:'json'})}
+canvas.addEventListener('pointerdown',e=>{start=point(e);canvas.setPointerCapture(e.pointerId);e.preventDefault()});
+canvas.addEventListener('pointermove',e=>{if(!start)return;const p=point(e);roi=[Math.min(start[0],p[0]),Math.min(start[1],p[1]),Math.max(start[0],p[0]),Math.max(start[1],p[1])];render()});
+canvas.addEventListener('pointerup',e=>{if(!start)return;const p=point(e);roi=[Math.min(start[0],p[0]),Math.min(start[1],p[1]),Math.max(start[0],p[0]),Math.max(start[1],p[1])];start=null;if(roi[2]-roi[0]<.002||roi[3]-roi[1]<.002)roi=null;render();publish()});
+canvas.addEventListener('pointercancel',()=>{start=null;roi=null;render();publish()});
+function clear(){roi=null;start=null;render();publish()}
+document.querySelector('button').onclick=clear;
+canvas.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Delete'){e.preventDefault();clear()}});
+window.addEventListener('message',event=>{
+ if(event.source!==parent||event.data.type!=='streamlit:render')return;
+ const a=event.data.args;
+ if(a.revision!==lastRevision||a.image!==imageSource){roi=a.value||null;lastRevision=a.revision}
+ if(a.image!==imageSource){imageSource=a.image;image.onload=render;image.src=a.image}else render();
+});
+new ResizeObserver(height).observe(document.body);
+send('streamlit:componentReady',{apiVersion:1});height();
+</script></body></html>

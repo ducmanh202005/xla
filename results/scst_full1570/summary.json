@@ -1,0 +1,168 @@
+{
+  "status": "complete",
+  "counts": {
+    "G": 1570,
+    "B": 1570
+  },
+  "primary_metric": "All CIDEr",
+  "primary_delta": 1.18497928321176,
+  "metrics": {
+    "All": {
+      "G": {
+        "BLEU-1": 40.759506076048204,
+        "BLEU-2": 28.628868721455326,
+        "BLEU-3": 20.38989958793935,
+        "BLEU-4": 15.065028738970854,
+        "ROUGE-L": 34.1907601241238,
+        "CIDEr": 33.85059984748716,
+        "METEOR": 20.131892596275904
+      },
+      "B": {
+        "BLEU-1": 48.34797268589629,
+        "BLEU-2": 33.73024032884307,
+        "BLEU-3": 23.847088704983594,
+        "BLEU-4": 17.49162666317093,
+        "ROUGE-L": 34.23906743486181,
+        "CIDEr": 35.03557913069892,
+        "METEOR": 20.121442419407533
+      }
+    },
+    "Real": {
+      "G": {
+        "BLEU-1": 38.76159818216174,
+        "BLEU-2": 26.515196722326813,
+        "BLEU-3": 18.43913632387081,
+        "BLEU-4": 13.385747982993305,
+        "ROUGE-L": 32.918549133160916,
+        "CIDEr": 31.70647876983075,
+        "METEOR": 19.85292266778614
+      },
+      "B": {
+        "BLEU-1": 46.270721470607846,
+        "BLEU-2": 31.14585267182691,
+        "BLEU-3": 21.330126566660667,
+        "BLEU-4": 15.257428710523039,
+        "ROUGE-L": 32.96420214439148,
+        "CIDEr": 34.98721164176896,
+        "METEOR": 19.643716730628935
+      }
+    },
+    "Render": {
+      "G": {
+        "BLEU-1": 42.90270160471171,
+        "BLEU-2": 30.877705779412736,
+        "BLEU-3": 22.453543256238895,
+        "BLEU-4": 16.838839849722927,
+        "ROUGE-L": 35.52268375612274,
+        "CIDEr": 30.2798595341661,
+        "METEOR": 20.416909075865814
+      },
+      "B": {
+        "BLEU-1": 49.81877844611189,
+        "BLEU-2": 35.882165973555104,
+        "BLEU-3": 26.045197229088135,
+        "BLEU-4": 19.486585915584556,
+        "ROUGE-L": 35.573769948874435,
+        "CIDEr": 29.346227381281388,
+        "METEOR": 20.6082118644218
+      }
+    }
+  },
+  "comparison": {
+    "All": {
+      "delta": {
+        "BLEU-4": 2.4265979242000757,
+        "METEOR": -0.01045017686837113,
+        "ROUGE-L": 0.048307310738010756,
+        "CIDEr": 1.18497928321176
+      },
+      "higher": [
+        "BLEU-4",
+        "ROUGE-L",
+        "CIDEr"
+      ],
+      "lower": [
+        "METEOR"
+      ],
+      "equal": [],
+      "missing": []
+    },
+    "Real": {
+      "delta": {
+        "BLEU-4": 1.8716807275297338,
+        "METEOR": -0.20920593715720415,
+        "ROUGE-L": 0.04565301123056287,
+        "CIDEr": 3.280732871938209
+      },
+      "higher": [
+        "BLEU-4",
+        "ROUGE-L",
+        "CIDEr"
+      ],
+      "lower": [
+        "METEOR"
+      ],
+      "equal": [],
+      "missing": []
+    },
+    "Render": {
+      "delta": {
+        "BLEU-4": 2.6477460658616288,
+        "METEOR": 0.19130278855598704,
+        "ROUGE-L": 0.05108619275169701,
+        "CIDEr": -0.9336321528847122
+      },
+      "higher": [
+        "BLEU-4",
+        "METEOR",
+        "ROUGE-L"
+      ],
+      "lower": [
+        "CIDEr"
+      ],
+      "equal": [],
+      "missing": []
+    }
+  },
+  "training": false,
+  "test_used": true,
+  "statistical_significance_tested": false,
+  "decode_by_arm": {
+    "G": {
+      "do_sample": false,
+      "num_beams": 1,
+      "max_new_tokens": 256,
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "top_k": 50,
+      "no_repeat_ngram_size": 0,
+      "min_new_tokens": 0,
+      "pad_token_id": 151645,
+      "eos_token_id": 151645,
+      "bos_token_id": null,
+      "use_cache": true,
+      "return_dict_in_generate": false,
+      "output_scores": false,
+      "repetition_penalty": 1.0
+    },
+    "B": {
+      "do_sample": false,
+      "num_beams": 1,
+      "max_new_tokens": 256,
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "top_k": 50,
+      "no_repeat_ngram_size": 0,
+      "min_new_tokens": 0,
+      "pad_token_id": 151645,
+      "eos_token_id": 151645,
+      "bos_token_id": null,
+      "use_cache": true,
+      "return_dict_in_generate": false,
+      "output_scores": false,
+      "repetition_penalty": 1.05
+    }
+  },
+  "matched_decoding": false,
+  "comparison_scope": "adapter_and_decoding"
+}
